@@ -3,10 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 06 mai 2024 à 15:59
+-- Généré le : mer. 08 mai 2024 à 16:13
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
-
 
 DROP DATABASE IF EXISTS timava_db;
 CREATE DATABASE timava_db ;
@@ -17,7 +16,6 @@ DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS products;
 DROP TABLE IF EXISTS users;
-
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,6 +65,13 @@ CREATE TABLE `cart` (
   `quantity` int(10) NOT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `pid`, `name`, `price`, `quantity`, `image`) VALUES
+(16, 1, 8, 'montre 3', 590, 1, 'patek BL.png .png');
 
 -- --------------------------------------------------------
 
@@ -124,19 +129,20 @@ CREATE TABLE `products` (
   `category` varchar(100) NOT NULL,
   `price` int(10) NOT NULL,
   `image` varchar(100) NOT NULL,
-  `description` text NOT NULL
+  `description` text NOT NULL,
+  `new` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `category`, `price`, `image`, `description`) VALUES
-(6, 'Montre 1', 'NEVO', 450, 'seikotest.png', 'Ceci est une description du produit\r\n'),
-(7, 'MOJNTRE', 'NIXIE', 500, 'coca.png', 'Ceci est une description du produit\r\n'),
-(8, 'montre 3', 'PETRA', 590, 'patek BL.png .png', 'Ceci est une description du produit'),
-(9, 'monntre 4', 'ZYRHA', 590, 'AP W.png', 'Ceci est une description du produit'),
-(11, 'pablito', 'NEVO', 800, 'arabicdialvert.png', 'Ceci est une description du produit');
+INSERT INTO `products` (`id`, `name`, `category`, `price`, `image`, `description`, `new`) VALUES
+(6, 'Montre 1', 'NEVO', 450, 'seikotest.png', 'Ceci est une description du produit\r\n', 1),
+(7, 'MOJNTRE', 'NIXIE', 500, 'coca.png', 'Ceci est une description du produit\r\n', 1),
+(8, 'montre 3', 'PETRA', 590, 'patek BL.png .png', 'Ceci est une description du produit', 1),
+(9, 'monntre 4', 'ZYRHA', 590, 'AP W.png', 'Ceci est une description du produit', 0),
+(11, 'torciv', 'NEVO', 800, 'arabicdialvert.png', 'Ceci est une description du produit', 1);
 
 -- --------------------------------------------------------
 
@@ -158,7 +164,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `number`, `password`, `address`) VALUES
-(1, 'torciv', 'victor.thnt@gmail.com', '0650864774', 'e8553a0c046925271cdc46e76614f2cf6e875803', 'sqdq, sqddq, sdq, dsq, dqs, dqs, dsq - 92150');
+(1, 'torciv', 'victor.thnt@gmail.com', '0650864774', 'e8553a0c046925271cdc46e76614f2cf6e875803', 'sqdq, sqddq, sdq, dsq, dqs, dqs, dsq - 92150'),
+(2, 'zizi', 'zizi@gmail.com', '0675844748', 'b3d8318435d8243ecc1976977cdc9de157200430', '');
 
 --
 -- Index pour les tables déchargées
@@ -214,7 +221,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
@@ -238,7 +245,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
