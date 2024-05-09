@@ -9,7 +9,7 @@
    --blue-dark: #0E1126;
    --blue-light: #333740;
    --grey: #7B838C;
-   --white: #F2F2F2;
+   --white: #ffffff;
 
    --border:.2rem solid var(--black);
    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
@@ -47,7 +47,7 @@ html{
 }
 
 body{
-   background-color: var(--black);
+   background-color: var(--white);
    /* padding-bottom: 7rem; */
 }
 
@@ -66,14 +66,14 @@ section{
    cursor: pointer;
    width: 100%;
    font-size: 1.8rem;
-   color:var(--black);
+   color:var(--white);
    padding:1.2rem 3rem;
    text-transform: capitalize;
    text-align: center;
 }
 
 .btn{
-   background-color: var(--grey);
+   background-color: var(--blue-light);
 }
 
 .delete-btn{
@@ -87,7 +87,7 @@ section{
 .btn:hover,
 .delete-btn:hover,
 .option-btn:hover{
-   background-color: #dadada46;
+   background-color: var(--grey);
 }
 
 .flex-btn{
@@ -95,33 +95,7 @@ section{
    gap:1rem;
 }
 
-.message{
-   position: sticky;
-   top:0;
-   max-width: 1200px;
-   margin:0 auto;
-   background-color: var(--black);
-   padding:2rem;
-   display: flex;
-   align-items: center;
-   gap:1rem;
-   justify-content: space-between;
-}
 
-.message span{
-   font-size: 2rem;
-   color:var(--black);
-}
-
-.message i{
-   font-size: 2.5rem;
-   color:var(--red);
-   cursor: pointer;
-}
-
-.message i:hover{
-   color:var(--black);
-}
 
 .heading{
    text-align: center;
@@ -134,7 +108,7 @@ section{
 .empty{
    border:var(--border);
    border-radius: .5rem;
-   background-color: var(--black);
+   background-color: var(--orange);
    padding:1.5rem;
    text-align: center;
    width: 100%;
@@ -152,7 +126,7 @@ section{
 }
 
 .form-container form{
-   background-color: var(--black);
+   background-color: var(--white);
    border-radius: .5rem;
    border:var(--border);
    box-shadow: var(--box-shadow);
@@ -163,7 +137,7 @@ section{
 
 .form-container form h3{
    font-size: 2.5rem;
-   color:var(--white);
+   color:var(--black);
    text-transform: capitalize;
    margin-bottom: 1rem;
 }
@@ -183,7 +157,7 @@ section{
    background-color: var(--white);
    padding:1.4rem;
    font-size: 1.4rem;
-   color:var(--black);
+   color:var(--orange);
    margin:1rem 0;
    border:var(--border);
    font-size: 1.8rem;
@@ -193,10 +167,10 @@ section{
 .header{
    position: sticky;
    top:0; left:0; right:0;
-   background-color: var(--black);
+   background-color: rgba(0, 0, 0, 0.416);
    box-shadow: var(--box-shadow);
    z-index: 1000;
-   border-bottom: var(--border);
+
 }
 
 .header .flex{
@@ -208,7 +182,7 @@ section{
 
 .header .flex .logo{
    font-size: 2.5rem;
-   color:var(--red);
+   color:var(--white);
 }
 
 .header .flex .logo span{
@@ -280,7 +254,6 @@ section{
 
 .dashboard .box-container .box{
    text-align: center;
-   background-color: var(--blue-light);
    border:var(--border);
    box-shadow: var(--box-shadow);
    border-radius: .5rem;
@@ -290,12 +263,12 @@ section{
 
 .dashboard .box-container .box h3{
    font-size: 2.7rem;
-   color: var(--white);
+   color: var(--black);
 }
 
 .dashboard .box-container .box h3 span{
    font-size: 2rem;
-   color: var(--white);
+   color: var(--black);
 }
 
 .dashboard .box-container .box p{
@@ -309,10 +282,24 @@ section{
    color:var(--white);
 }
 
+.new-product-checkbox {
+   width: 20px;  /* Increase the width of the checkbox */
+   height: 20px; /* Increase the height of the checkbox */
+   vertical-align: middle; /* Align checkbox vertically with the text */
+   margin-right: 5px; /* Add space between the checkbox and the label */
+}
+
+.new-product-label {
+   font-size: 16px; /* Increase the font size if needed */
+   vertical-align: middle; /* Align text vertically with the checkbox */
+   color: var(--black);
+}
+
+
 .add-products form{
    margin:0 auto;
    max-width: 50rem;
-   background-color: var(--black);
+   background-color: var(--white);
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
    border:var(--border);
@@ -338,6 +325,17 @@ section{
    margin: 1rem 0;
 }
 
+.new-tag {
+   display: inline-block;
+   background-color: #4CAF50; /* Green background */
+   color: white;
+   padding: 5px 10px;
+   font-size: 0.9em;
+   margin-top: 5px;
+   border-radius: 5px;
+}
+
+
 .show-products .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, 33rem);
@@ -347,12 +345,13 @@ section{
 }
 
 .show-products .box-container .box{
-   background-color: var(--black);
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
    border:var(--border);
    padding:1.5rem;
 }
+
+
 
 .show-products .box-container .box img{
    width: 100%;
@@ -435,7 +434,6 @@ section{
 }
 
 .placed-orders .box-container .box{
-   background-color: var(--black);
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
    border:var(--border);
@@ -451,7 +449,7 @@ section{
 }
 
 .placed-orders .box-container .box p span{
-   color:var(--white);
+   color:var(--black);
 }
 
 .placed-orders .box-container .box .drop-down{
@@ -474,7 +472,6 @@ section{
 }
 
 .accounts .box-container .box{
-   background-color: var(--black);
    border-radius: .5rem;
    box-shadow: var(--box-shadow);
    border:var(--border);

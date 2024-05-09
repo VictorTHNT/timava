@@ -11,6 +11,7 @@ if(!isset($admin_id)){
 };
 
 if(isset($_POST['add_product'])){
+   $new = isset($_POST['is_new']) ? 1 : 0;
 
    $name = $_POST['name'];
    $name = filter_var($name, FILTER_SANITIZE_STRING);
@@ -36,8 +37,8 @@ if(isset($_POST['add_product'])){
       }else{
          move_uploaded_file($image_tmp_name, $image_folder);
 
-         $insert_product = $conn->prepare("INSERT INTO `products`(name, category, price, image) VALUES(?,?,?,?)");
-         $insert_product->execute([$name, $category, $price, $image]);
+         $insert_product = $conn->prepare("INSERT INTO `products`(name, category, price, image, new) VALUES(?, ?, ?, ?, ?)");
+         $insert_product->execute([$name, $category, $price, $image, $new]); // Make sure to include $new
 
          $message[] = 'new product added!';
       }
@@ -98,6 +99,8 @@ if(isset($_GET['delete'])){
          <option value="ZYRHA">ZYRHA</option>
       </select>
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png, image/webp" required>
+      <label for="is_new" class="new-product-label">New</label>
+    <input type="checkbox" id="is_new" name="is_new" class="new-product-checkbox" value="1">
       <input type="submit" value="add product" name="add_product" class="btn">
    </form>
 
@@ -124,6 +127,9 @@ if(isset($_GET['delete'])){
          <div class="category"><?= $fetch_products['category']; ?></div>
       </div>
       <div class="name"><?= $fetch_products['name']; ?></div>
+      <?php if($fetch_products['new'] == 1): ?>
+            <div class="new-tag">New</div> <!-- Display 'New' tag if the product is marked as new -->
+         <?php endif; ?>
       <div class="flex-btn">
          <a href="update_product.php?update=<?= $fetch_products['id']; ?>" class="option-btn">update</a>
          <a href="products.php?delete=<?= $fetch_products['id']; ?>" class="delete-btn" onclick="return confirm('delete this product?');">delete</a>
