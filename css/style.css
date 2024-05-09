@@ -1233,6 +1233,31 @@ img{
    /* padding-bottom: 10rem; */
 }
 
+
+
+
+
+
+.test {
+   display: flex; /* Use flexbox to lay out children side by side */
+   justify-content: center; /* Center children horizontally */
+   align-items: center; /* Align children vertically */
+   gap: 10px; /* Adds space between the images */
+}
+
+.test img {
+   width: 20%; /* Each image takes up one-third of the container width */
+   height: auto; /* Maintain the aspect ratio of the images */
+}
+
+
+
+
+
+
+
+
+
 .credit span {
    color: var(--yellow);
 }

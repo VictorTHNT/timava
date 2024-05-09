@@ -75,6 +75,9 @@ include 'components/add_cart.php';
 
 -->
 
+
+
+
 <div class="container">
     <div class="left-section">
       <div>
@@ -111,6 +114,13 @@ include 'components/add_cart.php';
         ?>
     </div>
 </div>
+
+<div class="test">
+   <img src="images/NEVO.jpg" alt="NEVO Watch">
+   <img src="images/NEVO.jpg" alt="NEVO Watch">
+   <img src="images/NEVO.jpg" alt="NEVO Watch">
+</div>
+
 
 
    <?php include 'components/footer.php'; ?>
